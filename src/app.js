@@ -9,8 +9,18 @@ ctx.fillStyle = 'white'
 ctx.fillRect(0, 0, canvas.width, canvas.height)
 ctx.fillStyle = 'black'
 
-canvas.addEventListener('pointerdown', event => {})
-canvas.addEventListener('pointermove', event => {
-  ctx.fillRect(event.offsetX, event.offsetY, 2, 2)
+let previousPoint = null
+canvas.addEventListener('pointerdown', event => {
+  previousPoint = {x: event.offsetX, y: event.offsetY}
 })
-canvas.addEventListener('pointerup', () => {})
+canvas.addEventListener('pointermove', event => {
+  if (previousPoint === null) return
+  const currentPoint = {x: event.offsetX, y: event.offsetY}
+  for (let drawPoint of bresenhamLine(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y)) {
+    ctx.fillRect(drawPoint.x, drawPoint.y, 2, 2)
+  }
+  previousPoint = currentPoint
+})
+canvas.addEventListener('pointerup', () => {
+  previousPoint = null
+})
