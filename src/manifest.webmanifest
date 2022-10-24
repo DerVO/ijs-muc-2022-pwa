@@ -1,5 +1,5 @@
 {
-  "name": "BrainPaint 2000",
+  "name": "BrainPaint 2000 v2.0",
   "short_name": "BrainPaint",
   "description": "MS Paint PWA Demo App",
   "display": "standalone",
@@ -14,5 +14,11 @@
     "description": "Show information about Paint",
     "url": "/about.html",
     "icons": [{ "src": "icon.png", "sizes": "512x512" }]
+  }],
+  "file_handlers": [{
+    "action": "/index.html",
+    "accept": {
+        "image/png": [".png"]
+    }
   }]
 }
