@@ -5,9 +5,7 @@ const ctx = canvas.getContext('2d', {
   desynchronized: true
 })
 
-ctx.fillStyle = 'white'
-ctx.fillRect(0, 0, canvas.width, canvas.height)
-ctx.fillStyle = 'black'
+clearCanvas('white')
 
 let previousPoint = null
 canvas.addEventListener('pointerdown', event => {
@@ -86,6 +84,18 @@ btnShare.addEventListener('click', async () => {
     alert('your browser does not support sharing')
   }
 })
+
+const btnClear = document.querySelector('#clear')
+btnClear.addEventListener('click', async () => {
+  clearCanvas('white')
+})
+
+function clearCanvas(color) {
+  const oldColour = ctx.fillStyle
+  ctx.fillStyle = color
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+  ctx.fillStyle = oldColour
+}
 
 if ('launchQueue' in window) {
   launchQueue.setConsumer(async params => {
