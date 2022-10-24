@@ -20,3 +20,12 @@ After cloning this repository, run the following commands in its root directory:
 npm i
 npm start
 ```
+## Meine Notizen
+
+* Repo  
+  https://github.com/thinktecture/ijs-muc-2022-pwa
+* Slides  
+  https://www.thinktecture.com/thinktects/christian-liebel/
+* Public Test  
+  `ngrok http 3000`  
+  https://dashboard.ngrok.com/

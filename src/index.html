@@ -14,13 +14,15 @@
         <button id="copy">Copy</button>
         <button id="paste">Paste</button>
         <button id="share">Share</button>
+        <button id="clear">Clear</button>
         <input type="color" id="color">
     </nav>
+    <h1>It works!</h1>
     <canvas id="canvas" width="600" height="480"></canvas>
     <script src="app.js" type="module"></script>
     <script>
         if (navigator.serviceWorker) {
-            navigator.serviceWorker.register("sw.js");
+          navigator.serviceWorker.register('sw.js')
         }
     </script>
 </body>
