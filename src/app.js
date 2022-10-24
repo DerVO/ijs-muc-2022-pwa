@@ -73,5 +73,16 @@ btnPaste.addEventListener('click', async () => {
       }
     }
   }
+})
 
+const btnShare = document.querySelector('#share')
+btnShare.addEventListener('click', async () => {
+  const blob = await toBlob(canvas)
+  const file = new File([blob], 'untitled.png', {type: 'image/png'})
+  const item = {files: [file], title: 'untiteled.png'}
+  if (navigator.share && navigator.canShare(item)) {
+    await navigator.share(item)
+  } else {
+    alert('your browser does not support sharing')
+  }
 })
